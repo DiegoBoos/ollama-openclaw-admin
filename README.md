@@ -7,7 +7,7 @@ Panel de administración de agentes OpenClaw desplegados con Ollama.
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │   Frontend      │────▶│   Backend API     │────▶│   Ollama        │
-│   (Next.js)     │     │   (FastAPI)      │     │   (instances)  │
+│   (Angular)     │     │   (NestJS)        │     │   (instances)  │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
                                │
                                ▼
@@ -21,8 +21,8 @@ Panel de administración de agentes OpenClaw desplegados con Ollama.
 
 ## Tech Stack
 
-- **Frontend**: Next.js + TailwindCSS
-- **Backend**: FastAPI (Python)
+- **Frontend**: Angular + TailwindCSS
+- **Backend**: NestJS (TypeScript)
 - **DB**: PostgreSQL (compatible con siriscloud)
 - **AI**: Ollama + OpenClaw CLI
 
@@ -39,13 +39,11 @@ npm install
 
 # Setup backend
 cd ../api
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+npm install
 
 # Run
-npm run dev  # frontend
-uvicorn main:app --reload  # backend
+ng serve           # frontend
+npm run start:dev  # backend
 ```
 
 ## Ambiente
@@ -54,7 +52,7 @@ Configura las variables de entorno:
 
 ```env
 # API
-API_URL=http://localhost:8000
+API_URL=http://localhost:3000
 
 # Ollama
 OLLAMA_BASE_URL=http://localhost:11434
@@ -71,7 +69,7 @@ SIRISCLOUD_INTEGRATIONS_URL=http://localhost:3003
 
 ## Roadmap
 
-- [ ] Setup proyecto Next.js + FastAPI
+- [ ] Setup proyecto Angular + NestJS
 - [ ] Integración con Ollama API
 - [ ] Conexión con OpenClaw CLI (`openclaw launch`)
 - [ ] Panel de gestión de agentes
